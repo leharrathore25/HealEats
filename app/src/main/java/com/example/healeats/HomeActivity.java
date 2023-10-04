@@ -18,6 +18,7 @@ public class HomeActivity extends AppCompatActivity {
         User user = UserDataSingleton.getInstance().getUser();
         text.setText("Hello "+ user.getFirstName());
         //Toast.makeText(this, "HI").show();
+        //Toast.makeText(this, "HELLO").show();
 
 
     }
