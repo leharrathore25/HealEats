@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "361441361910",
+    "firebase_url": "https://healeats-ab297-default-rtdb.firebaseio.com",
+    "project_id": "healeats-ab297",
+    "storage_bucket": "healeats-ab297.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361441361910:android:ac1ea667c7afbe3bc951d7",
+        "android_client_info": {
+          "package_name": "com.example.healeats"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy-4uiod7yLaGuesroipY0nXEoZEtNW0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361441361910:android:9d69d895213e094bc951d7",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy-4uiod7yLaGuesroipY0nXEoZEtNW0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
