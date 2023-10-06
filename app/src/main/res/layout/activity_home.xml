@@ -13,4 +13,20 @@
         android:layout_height="wrap_content"
         android:text="Hello" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:contentDescription="Profile picture"
+        android:onClick="onProfilePictureClick" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select diseases"
+        android:onClick="onSelectDiseaseButtonClick"/>
+
+
 </LinearLayout>
