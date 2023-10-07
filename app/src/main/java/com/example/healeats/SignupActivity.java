@@ -26,7 +26,7 @@ import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity {
     private EditText usernameEditText, emailEditText, firstNameEditText, lastNameEditText,
-            phoneNumberEditText, passwordEditText, confirmPasswordEditText;
+            phoneNumberEditText, passwordEditText, confirmPasswordEditText, ageEditText, heightEditText, weightEditText;
 
     private FirebaseFirestore db;
 
@@ -44,6 +44,9 @@ public class SignupActivity extends AppCompatActivity {
         phoneNumberEditText = findViewById(R.id.editTextPhone);
         passwordEditText = findViewById(R.id.editTextTextPassword);
         confirmPasswordEditText = findViewById(R.id.editTextTextPassword2);
+        ageEditText=findViewById(R.id.editTextTextAge);
+        heightEditText=findViewById(R.id.editTextTextHeight);
+        weightEditText=findViewById(R.id.editTextTextWeight);
 
         TextView textViewSignIn = findViewById(R.id.textView4);
         textViewSignIn.setMovementMethod(LinkMovementMethod.getInstance());
@@ -73,6 +76,14 @@ public class SignupActivity extends AppCompatActivity {
         String number = phoneNumberEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         String confirmPassword = confirmPasswordEditText.getText().toString();
+        String ageString = ageEditText.getText().toString();
+        int age = Integer.parseInt(ageString);
+        String heightString = heightEditText.getText().toString();
+        float height = Float.parseFloat(heightString);
+        String weightString = weightEditText.getText().toString();
+        float weight = Float.parseFloat(weightString);
+        String role="customer";
+
         if (!password.equals(confirmPassword)) {
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
@@ -102,6 +113,10 @@ public class SignupActivity extends AppCompatActivity {
                                 user.put("lastname", lastname);
                                 user.put("number", number);
                                 user.put("pfp","-");
+                                user.put("role",role);
+                                user.put("age",age);
+                                user.put("height",height);
+                                user.put("weight",weight);
 
                                 // Add the user data to the Firestore database
                                 db.collection("users")

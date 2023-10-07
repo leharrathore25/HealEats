@@ -63,6 +63,33 @@
         android:padding="15dp"/>
 
     <EditText
+        android:id="@+id/editTextTextAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="age"
+        android:padding="15dp"/>
+
+    <EditText
+        android:id="@+id/editTextTextHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="height (in cm)"
+        android:padding="15dp"/>
+
+    <EditText
+        android:id="@+id/editTextTextWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="weight (in kg)"
+        android:padding="15dp"/>
+
+    <EditText
         android:id="@+id/editTextTextPassword2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,7 +113,8 @@
         android:text="Already have an account? Sign in"
         android:clickable="true"
         android:textColorLink="#3F51B5"
-        android:padding="15dp"/>
+        android:padding="15dp"
+        />
 
 
 </LinearLayout>
