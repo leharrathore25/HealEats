@@ -6,12 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class HomeActivity extends AppCompatActivity {
+public class CustomerHomeActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_SELECT_DISEASE = 178;
     private TextView text;
     private ImageView pfp;
@@ -19,7 +17,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_customer_home);
         text=findViewById(R.id.textView);
         pfp=findViewById(R.id.imageView);
         User user = UserDataSingleton.getInstance().getUser();
@@ -35,12 +33,12 @@ public class HomeActivity extends AppCompatActivity {
 
     public void onProfilePictureClick(View view) {
             // Navigate to the EditProfileActivity
-            Intent intent = new Intent(this, UserProfile.class);
+            Intent intent = new Intent(this, CustomerProfile.class);
             startActivity(intent);
 
     }
     public void onSelectDiseaseButtonClick(View view) {
-        Intent intent = new Intent(this, DiseasesListActivity.class);
+        Intent intent = new Intent(this, CustomerDiseasesListActivity.class);
         startActivity(intent);
     }
 }

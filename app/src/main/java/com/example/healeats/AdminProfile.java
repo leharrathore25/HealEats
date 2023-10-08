@@ -1,5 +1,9 @@
 package com.example.healeats;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -11,10 +15,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,7 +24,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 
-public class UserProfile extends AppCompatActivity {
+public class AdminProfile extends AppCompatActivity {
     private String username;
     private FirebaseFirestore db;
     private ImageView pfp;
@@ -36,7 +36,7 @@ public class UserProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
+        setContentView(R.layout.activity_admin_profile);
         pfp = findViewById(R.id.imageView2);
         upload_img = findViewById(R.id.button4);
         apply_changes = findViewById(R.id.button5);
@@ -108,11 +108,11 @@ public class UserProfile extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(UserProfile.this, "Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminProfile.this, "Failed", Toast.LENGTH_SHORT).show();
                         }
                     });
         } else {
-            Toast.makeText(UserProfile.this, "No image selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AdminProfile.this, "No image selected", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -125,18 +125,18 @@ public class UserProfile extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Toast.makeText(UserProfile.this, "Profile picture added successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminProfile.this, "Profile picture added successfully", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(UserProfile.this, "Failed to add profile picture", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminProfile.this, "Failed to add profile picture", Toast.LENGTH_SHORT).show();
                         }
                     });
         } else {
             Log.d("UserProfile.this","NUll");
-            Toast.makeText(UserProfile.this, "Null", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AdminProfile.this, "Null", Toast.LENGTH_SHORT).show();
         }
     }
 
