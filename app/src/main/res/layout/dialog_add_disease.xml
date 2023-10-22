@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!-- Disease Name -->
+    <EditText
+        android:id="@+id/editTextDiseaseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Disease Name"
+        android:padding="15dp"/>
+
+    <!-- Symptoms -->
+    <EditText
+        android:id="@+id/editTextSymptoms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Symptoms"
+        android:padding="15dp"/>
+
+    <!-- Causes -->
+    <EditText
+        android:id="@+id/editTextCauses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Causes"
+        android:padding="15dp"/>
+
+    <!-- Recommendation -->
+    <EditText
+        android:id="@+id/editTextRecommendations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Recommendations"
+        android:padding="15dp"/>
+
+</LinearLayout>

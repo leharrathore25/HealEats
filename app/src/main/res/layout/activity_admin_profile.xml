@@ -35,4 +35,12 @@
         android:text="Apply changes"
         android:onClick="onApplyChangesClick"/>
 
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log out"
+        android:onClick="AdminLogOut"/>
+
+
 </LinearLayout>

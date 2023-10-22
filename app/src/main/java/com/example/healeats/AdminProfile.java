@@ -143,4 +143,8 @@ public class AdminProfile extends AppCompatActivity {
     public void onApplyChangesClick(View view) {
         uploadImageToFirebase();
     }
+    public void AdminLogOut(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
 }

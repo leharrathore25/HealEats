@@ -143,4 +143,10 @@ public class CustomerProfile extends AppCompatActivity {
     public void onApplyChangesClick(View view) {
         uploadImageToFirebase();
     }
+    public void UserlogOut(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+
 }

@@ -8,9 +8,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class AdminHomeActivity extends AppCompatActivity {
-    private EditText text;
+    private TextView text;
     private ImageView pfp;
 
     @Override
@@ -21,7 +22,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         pfp=findViewById(R.id.imageView);
         User user = UserDataSingleton.getInstance().getUser();
         if (user != null) {
-            text.setText("Hello " + user.getFirstName());
+            text.setText("Hello Admin" + user.getFirstName());
         } else {
             Log.e("HomeActivity", "User object is null"); // Log an error for debugging
             text.setText("Hello null");
@@ -34,11 +35,10 @@ public class AdminHomeActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-    public void onSelectDiseaseButtonClick(View view) {
-        Intent intent = new Intent(this, CustomerDiseasesListActivity.class);
-        startActivity(intent);
+
+    public void onAllDiseaseButtonClick(View view) {
+//        Intent intent = new Intent(this, AdminDiseasesListActivity.class);
+//        startActivity(intent);
     }
 
-    public void onAddDiseaseButtonClick(View view) {
-    }
 }

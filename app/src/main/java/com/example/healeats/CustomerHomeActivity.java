@@ -41,4 +41,5 @@ public class CustomerHomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CustomerDiseasesListActivity.class);
         startActivity(intent);
     }
+
 }

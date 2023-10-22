@@ -24,7 +24,7 @@
         android:id="@+id/button7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add diseases"
-        android:onClick="onAddDiseaseButtonClick"/>
+        android:text="All diseases"
+        android:onClick="onAllDiseaseButtonClick"/>
 
 </LinearLayout>
