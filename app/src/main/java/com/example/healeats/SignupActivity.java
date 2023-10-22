@@ -88,6 +88,144 @@ public class SignupActivity extends AppCompatActivity {
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (username.startsWith(username + " ")) {
+         Toast.makeText(this, "There cannot be a space after Username", Toast.LENGTH_LONG).show();
+        }
+        if (username.length() < 5) {
+           Toast.makeText(this, "Minimum Length of UserName should be 5", Toast.LENGTH_LONG).show();
+           return;
+       }
+        if (username.contains(" ")) {
+            Toast.makeText(this, "Username cannot contain space", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (username.length() > 20) {
+            Toast.makeText(this, "Username cannot be more than 20 characters", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (password.contains(" ")) {
+            Toast.makeText(this, "Password cannot contain space", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (password.length() > 20) {
+            Toast.makeText(this, "Password cannot be more than 20 characters", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (password.length() < 8) {
+            Toast.makeText(this, "Password cannot be less than 8 characters", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        boolean containsLowercase = false;
+        for (char c : password.toCharArray()) {
+            if (Character.isLowerCase(c)) {
+                containsLowercase = true;
+                break;
+            }
+        }
+        if (!containsLowercase) {
+            Toast.makeText(this, "Password needs atleast one Lowercase Character", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        boolean containsUppercase = false;
+        for (char c : password.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                containsUppercase = true;
+                break;
+            }
+        }
+        if (!containsUppercase) {
+            Toast.makeText(this, "Password needs atleast one Uppercase Character", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        boolean containsDigit = false;
+        for (char c : password.toCharArray()) {
+            if (Character.isDigit(c)) {
+                containsDigit = true;
+                break;
+            }
+        }
+        if (!containsDigit) {
+            Toast.makeText(this, "Password needs atleast one Digit", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        boolean containsSpecialCharacter = false;
+        for (char c : password.toCharArray()) {
+            if (!Character.isLetterOrDigit(c)) {
+                containsSpecialCharacter = true;
+                break;
+            }
+        }
+        if (!containsSpecialCharacter) {
+            Toast.makeText(this, "Password needs atleast one Special Character", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (password.equalsIgnoreCase(username)) {
+            Toast.makeText(this, "Password cannot be the same as username", Toast.LENGTH_SHORT).show();
+            return;
+       }
+
+
+        int atSymbolIndex = email.indexOf('@');
+        if (atSymbolIndex == -1 || atSymbolIndex == 0) {
+            Toast.makeText(this, " Missing '@' symbol or starts with '@' ", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int dotIndex = email.indexOf('.', atSymbolIndex);
+        if (dotIndex == -1 || dotIndex == atSymbolIndex + 1 || dotIndex == email.length() - 1) {
+            Toast.makeText(this, " Missing dot after '@' or starts or ends with dot ", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (firstname.startsWith(firstname + " ")) {
+            Toast.makeText(this, "There cannot be a space after Firstname", Toast.LENGTH_LONG).show();
+        }
+
+        if (firstname.contains(" ")) {
+            Toast.makeText(this, "Firstname cannot contain space", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (firstname.length() > 20) {
+            Toast.makeText(this, "Firstname cannot be more than 20 characters", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (lastname.startsWith(firstname + " ")) {
+            Toast.makeText(this, "There cannot be a space after Lastname", Toast.LENGTH_LONG).show();
+        }
+
+        if (lastname.contains(" ")) {
+            Toast.makeText(this, "Lastname cannot contain space", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (lastname.length() > 20) {
+            Toast.makeText(this, "Lastname cannot be more than 20 characters", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        String numericPhoneNumber = number.replaceAll("[^0-9]", "");
+
+        // Check if the cleaned phone number has exactly 10 digits
+        if (numericPhoneNumber.length() != 10) {
+            Toast.makeText(this, "Invalid Phone Number", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (age <= 0 && age >= 100) {
+            Toast.makeText(this, "Age should be between 0-100", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (height <= 50 && height >= 300) {
+            Toast.makeText(this, "Invalid Height", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (weight <= 10 && weight >= 500) {
+            Toast.makeText(this, "Invalid Weight", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Map<String, Object> user = new HashMap<>();
 
         // Add the user data to the Firestore database
