@@ -11,19 +11,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseAdapter.ViewHolder> {
+import java.util.List;
 
-    private final QuerySnapshot mDiseaseList;
+public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseAdapter.ViewHolder> {
+    private QuerySnapshot mDiseaseList;
+    private OnItemClickListener mListener;
 
     public DiseaseAdapter(QuerySnapshot diseaseList) {
         mDiseaseList = diseaseList;
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(String diseaseId);
+
+    public void updateData(QuerySnapshot diseaseList) {
+        mDiseaseList = diseaseList;
+        notifyDataSetChanged();
     }
 
-    private OnItemClickListener mListener;
+    public interface OnItemClickListener {
+        void onItemClick(Disease disease); // Pass the entire Disease object
+    }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
@@ -43,8 +49,8 @@ public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseAdapter.ViewHold
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
                             QueryDocumentSnapshot document = (QueryDocumentSnapshot) mDiseaseList.getDocuments().get(position);
-                            String diseaseId = document.getId();
-                            mListener.onItemClick(diseaseId);
+                            Disease disease = document.toObject(Disease.class);
+                            mListener.onItemClick(disease); // Pass the entire Disease object
                         }
                     }
                 }
@@ -70,9 +76,6 @@ public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseAdapter.ViewHold
         return mDiseaseList.size();
     }
 }
-
-
-
 
 
 

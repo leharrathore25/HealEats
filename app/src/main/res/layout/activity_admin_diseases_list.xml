@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!-- Add Disease Button -->
     <Button
-        android:id="@+id/btnAddNewDisease"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnAddDisease"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add New Disease"
-        android:onClick="showAddDiseaseDialog"/>
+        android:text="Add Disease"
+        android:padding="16dp"
+        android:onClick="onAddDiseaseClick"/>
 
-    <!-- RecyclerView to display diseases -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewDiseases"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 
 </LinearLayout>

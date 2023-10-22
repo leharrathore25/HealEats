@@ -27,12 +27,4 @@
         android:hint="Causes"
         android:padding="15dp"/>
 
-    <!-- Recommendation -->
-    <EditText
-        android:id="@+id/editTextRecommendations"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Recommendations"
-        android:padding="15dp"/>
-
 </LinearLayout>

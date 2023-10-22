@@ -6,8 +6,6 @@ public class Disease {
     private String name;
     private String symptoms;
     private String causes;
-    private String recommendations;
-    private String symptomTags;
     private boolean isSelected;
 
     public boolean isSelected() {
@@ -19,21 +17,17 @@ public class Disease {
     }
 
 
-    public String getSymptomTags() {
-        return symptomTags;
+
+
+    public Disease() {
+
     }
 
-    public void setSymptomTags(String symptomTags) {
-        this.symptomTags = symptomTags;
-    }
 
-
-    public Disease(String name, String symptoms, String causes, String recommendations, String symptomTags) {
+    public Disease(String name, String symptoms, String causes) {
         this.name = name;
         this.symptoms = symptoms;
         this.causes = causes;
-        this.recommendations = recommendations;
-        this.symptomTags = Arrays.asList(symptomTags.split(",\\s*")).toString();
         isSelected=false;
     }
 
@@ -61,12 +55,6 @@ public class Disease {
         this.causes = causes;
     }
 
-    public String getRecommendations() {
-        return recommendations;
-    }
 
-    public void setRecommendations(String recommendations) {
-        this.recommendations = recommendations;
-    }
 
 }

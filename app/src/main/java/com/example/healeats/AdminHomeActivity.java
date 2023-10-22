@@ -37,8 +37,8 @@ public class AdminHomeActivity extends AppCompatActivity {
     }
 
     public void onAllDiseaseButtonClick(View view) {
-//        Intent intent = new Intent(this, AdminDiseasesListActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, AdminDiseasesListActivity.class);
+        startActivity(intent);
     }
 
 }

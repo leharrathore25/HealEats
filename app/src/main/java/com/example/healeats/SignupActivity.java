@@ -83,7 +83,7 @@ public class SignupActivity extends AppCompatActivity {
         String weightString = weightEditText.getText().toString();
         float weight = Float.parseFloat(weightString);
         String role="customer";
-
+        String disease_id="";
         if (!password.equals(confirmPassword)) {
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
@@ -117,6 +117,8 @@ public class SignupActivity extends AppCompatActivity {
                                 user.put("age",age);
                                 user.put("height",height);
                                 user.put("weight",weight);
+                                user.put("disease_id",disease_id);
+
 
                                 // Add the user data to the Firestore database
                                 db.collection("users")

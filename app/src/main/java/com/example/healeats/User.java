@@ -11,9 +11,13 @@ public class User {
     private String lastname;
     private String pfp;
     private String role;
+
+    private String disease_id;
+
     private int age;
     private float height;
     private float weight;
+
 
 
     // Constructors (you can have multiple constructors as needed)
@@ -22,7 +26,7 @@ public class User {
     }
 
     public User(String userId, String username, String password, String email, String number,
-                String firstName, String lastName, String pfp, String role, int age, float height, float weight) {
+                String firstName, String lastName, String pfp, String role, int age, float height, float weight, String disease_id) {
         this.userId = userId;
         this.username = username;
         this.password= password;
@@ -35,8 +39,16 @@ public class User {
         this.age=age;
         this.height=height;
         this.weight=weight;
+        this.disease_id=disease_id;
     }
 
+    public String getDisease_id() {
+        return disease_id;
+    }
+
+    public void setDisease_id(String disease_id) {
+        this.disease_id = disease_id;
+    }
     // Getters
     public String getUserId() {
         return userId;
