@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -86,11 +88,25 @@ public class CustomerDiseasesListActivity extends AppCompatActivity {
         btnConfirmDisease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Update the user's disease_id field in Firestore
-                updateUserDisease(disease.getName());
+                ProgressDialogFragment progressDialog = new ProgressDialogFragment();
+                progressDialog.show(getSupportFragmentManager(), "progressDialog");
 
-                // Dismiss the dialog
-                dialog.dismiss();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Update the user's disease_id field in Firestore
+                        updateUserDisease(disease.getName());
+
+                        // Dismiss the dialog
+                        progressDialog.dismiss();
+
+                        // Pass the disease_id to the new activity
+                        String diseaseId = disease.getName();
+                        Intent intent = new Intent(CustomerDiseasesListActivity.this, CustomerMealPlanActivity.class);
+                        intent.putExtra("disease_id", diseaseId);
+                        startActivity(intent);
+                    }
+                }, 2000); // Adjust the duration as needed
             }
         });
 
